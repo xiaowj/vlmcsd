@@ -3,6 +3,7 @@ WORKDIR /root
 RUN apk add --no-cache git make build-base && \
     git clone --branch master --single-branch https://github.com/Wind4/vlmcsd.git && \
     cd vlmcsd/ && \
+    git checkout 70e0357 && \
     make
 
 FROM alpine:latest
