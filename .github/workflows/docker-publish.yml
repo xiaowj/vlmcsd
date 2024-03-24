@@ -68,7 +68,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: xiaowj/vlmcsd:latest
+          tags: ghcr.io/xiaowj/vlmcsd:latest
 
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
@@ -78,7 +78,7 @@ jobs:
       - name: Sign the published Docker image
         env:
           # https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
-          TAGS: xiaowj/vlmcsd:latest
+          TAGS: ghcr.io/xiaowj/vlmcsd:latest
           DIGEST: ${{ steps.build-and-push.outputs.digest }}
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
